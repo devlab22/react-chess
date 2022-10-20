@@ -27,30 +27,26 @@ export class King extends Figure {
         const direction = 1;
         if ((target.y === this.cell.y + direction ||
             (target.y === this.cell.y - direction))
-            && target.x === this.cell.x) {
+            && target.x === this.cell.x
+            && !this.cell.isUnderAttack(target, this.cell.figure)) {
             return true;
         }
 
         if ((target.x === this.cell.x + direction ||
             (target.x === this.cell.x - direction))
-            && target.y === this.cell.y) {
+            && target.y === this.cell.y
+            && !this.cell.isUnderAttack(target, this.cell.figure)) {
             return true;
         }
 
         if ((target.y === this.cell.y + direction || target.y === this.cell.y - direction)
-            && (target.x === this.cell.x + 1 || target.x === this.cell.x - 1)) {
+            && (target.x === this.cell.x + 1 || target.x === this.cell.x - 1)
+            && !this.cell.isUnderAttack(target, this.cell.figure)) {
             return true;
         }
-
-        if(!this.underAttack(target)){
-            return true;
-        }
-
 
         return false;
     }
 
-    underAttack(target: Cell) : boolean{
-        return false;
-    }
+    
 }

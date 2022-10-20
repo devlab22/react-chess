@@ -102,4 +102,33 @@ export class Cell {
         }
         return false;
     }
+
+    isUnderAttack(target: Cell, figure: Figure | null): boolean {
+
+        for (let x = 0; x < 8; x++) {
+            for (let y = 0; y < 8; y++) {
+                const current = this.board.cells[x][y];
+                if (current.figure && (current.figure?.color !== figure?.color)) {
+
+                    if(current.x === 4 && current.y === 3){
+                        //debugger;
+                        console.log('current', current)
+                        console.log('target', target)
+                        console.log(current.figure.canMove(target))
+                    }
+                        
+                    if (current.figure.canMove(target)) {
+                        
+
+                        
+                        return true;
+                    }
+
+
+                }
+
+            }
+        }
+        return false;
+    }
 }

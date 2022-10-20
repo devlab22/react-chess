@@ -29,11 +29,11 @@ const App = () => {
 
   return (
     <div className='app'>
-      <Timer 
+      {/* <Timer 
         restart={restart}
         currentPlayer={currentPlayer}
         secondsGame={300}
-        />
+        /> */}
       <BoardComponent 
         board={board} 
         setBoard={setBoard}

@@ -29,7 +29,6 @@ const Timer: FC<TimerProps> = ({ currentPlayer, restart, secondsGame }) => {
     const decrementBlackTimer = () => {
 
         if(blackTime <= 0){
-            window.alert('White won')
             handleRestart();
         }else{
             setBlackTime(prev => prev - 1);
@@ -40,7 +39,6 @@ const Timer: FC<TimerProps> = ({ currentPlayer, restart, secondsGame }) => {
     const decrementWhiteTimer = () => {
 
         if(whiteTime <= 0){
-            window.alert('Black won');
             handleRestart();
         }else{
             setWhiteTime(prev => prev - 1);
