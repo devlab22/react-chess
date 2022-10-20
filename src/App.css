@@ -64,3 +64,16 @@
     background-color: green;
 }
 
+.header{
+    font-size: 32px;
+    color: teal;
+    margin-bottom: 15px;
+}
+
+.lost{
+    height: calc(50vh - 60px);
+    padding: 30px;
+    margin-left: 50px;
+    background-color: lightgray;
+}
+

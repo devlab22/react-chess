@@ -1,6 +1,5 @@
 import {Figure, FigureNames} from './Figure';
-import {Cell} from '../Cell';
-import {Colors} from '../Colors';
+import {Cell, Colors} from '../../models';
 
 import blackLogo from '../../assets/black-bishop.png';
 import whiteLogo from '../../assets/white-bishop.png';
@@ -18,7 +17,10 @@ export class Bishop extends Figure{
             return false;
         }
 
-       
+        if(this.cell.isEmptyDiagonal(target)){
+            return true;
+        }
+        
         return false;
     }
 }
