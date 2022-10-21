@@ -18,7 +18,7 @@ export class Pawn extends Figure {
         if (!super.canMove(target)) {
             return false;
         }
-
+        
         const direction = this.cell.figure?.color === Colors.BLACK ? 1 : -1;
         const firstStepDirection = this.cell.figure?.color === Colors.BLACK ? 2 : -2;
 
@@ -41,5 +41,21 @@ export class Pawn extends Figure {
     moveFigure(target: Cell): void {
         super.moveFigure(target);
         this.isFirstStep = false;
+    }
+
+    canAttack(target: Cell): boolean {
+
+        if(super.canAttack(target)){
+            return true;
+        }
+
+        const direction = this.cell.figure?.color === Colors.BLACK ? 1 : -1;
+
+        if(target.y === this.cell.y + direction
+            && (target.x === this.cell.x + 1 || target.x === this.cell.x - 1)){
+                return true;
+            }
+
+        return false;
     }
 }

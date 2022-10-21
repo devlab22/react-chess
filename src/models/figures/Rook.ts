@@ -5,6 +5,8 @@ import whiteLogo from '../../assets/white-rook.png';
 
 export class Rook extends Figure{
 
+    isFirstStep: boolean = true;
+
     constructor(color:Colors, cell:Cell){
         super(color,cell);
         this.logo = color === Colors.BLACK ? blackLogo : whiteLogo;
@@ -25,5 +27,10 @@ export class Rook extends Figure{
         }
 
         return false;
+    }
+
+    moveFigure(target: Cell): void {
+        super.moveFigure(target);
+        this.isFirstStep = false;
     }
 }

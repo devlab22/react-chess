@@ -43,4 +43,28 @@ export class Figure{
     moveFigure(target:Cell){
         
     }
+
+    canAttack(target: Cell) : boolean{
+
+        if(this.canMove(target)){
+            return true;
+        }
+        return false;
+    }
+
+    isKingUnderAttack() : boolean{
+        
+        const target = this.cell.getCell4Figure(FigureNames.KING, this.color);
+        if(target === null){
+            return false;
+        }
+        
+        if(this.cell.isUnderAttack(target, target.figure)){
+            return true;
+        }
+
+        return false;
+    }
+
+    
 }

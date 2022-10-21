@@ -1,4 +1,4 @@
-import { Board, Colors, Figure } from "../models";
+import { Board, Colors, Figure, FigureNames } from "../models";
 
 export class Cell {
     readonly x: number;
@@ -108,27 +108,27 @@ export class Cell {
         for (let x = 0; x < 8; x++) {
             for (let y = 0; y < 8; y++) {
                 const current = this.board.cells[x][y];
-                if (current.figure && (current.figure?.color !== figure?.color)) {
-
-                    if(current.x === 4 && current.y === 3){
-                        //debugger;
-                        console.log('current', current)
-                        console.log('target', target)
-                        console.log(current.figure.canMove(target))
-                    }
-                        
-                    if (current.figure.canMove(target)) {
-                        
-
-                        
-                        return true;
-                    }
-
-
+                if (current.figure && (current.figure?.color !== figure?.color)
+                    && current.figure.canAttack(target)) {
+                    return true;
                 }
 
             }
         }
         return false;
+    }
+
+    getCell4Figure(name: FigureNames, color: Colors) : Cell | null{
+
+        for (let x = 0; x < 8; x++) {
+            for (let y = 0; y < 8; y++) {
+                const current = this.board.cells[x][y];
+                if(current.figure?.name === name && current.figure?.color === color){
+                    return current;
+                }
+
+            }
+        }
+        return null;
     }
 }
