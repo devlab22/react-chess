@@ -29,6 +29,7 @@ export class Figure{
 
     canMove(target:Cell) : boolean{
 
+        debugger
         if(target.figure?.color === this.color){
             return false;
         }
